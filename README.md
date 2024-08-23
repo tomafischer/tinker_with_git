@@ -1,6 +1,10 @@
-# GIT
+# GIT 
 
 # Info
+## Links
+[slingaccademy](https://www.slingacademy.com/article/git-commands-comprehensive-cheat-sheet-examples/)
+
+## info commands
 ```bash
 # show all brancheds
 git branch -v
@@ -19,8 +23,9 @@ git log dev~
 git show HEAD^^
 git show dev~2
 
-# Show Tree history: git ls-tree <tree-ish>
+# Show Tree content: git ls-tree <tree-ish>
 git ls-tree dev
+git ls-tree dev -r # recursive.. breaks the "tree" up into its fils
 ```
 # Basics branching
 ## pull specific branch from remote
