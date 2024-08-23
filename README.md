@@ -1,0 +1,166 @@
+# GIT
+
+# Info
+```
+# show all brancheds
+git branch -v
+# show a changeset
+git show <hash,
+# show the head
+git show HEAD  # commit ff8bb51f869eb043a80d772c27820fcb22beb3eb (HEAD -> dev, origin/dev, fix/abc) 
+```
+# Basics branching
+## pull specific branch from remote
+```bash
+git pull origin <branch_name> # e.g. git pull origin dev
+```
+## Switching Branches (checkout old way)
+```bash
+# list all branches (local and remote)
+git branch -a
+####
+# git checkout replaced by: switch and restore
+### switching branchwes
+git switch <branch name>  # switch branchs
+#### restoring files
+git restore <file_name> # reset the file to the last staged or repo
+git restore --staged <file_name
+```
+## New Branch
+```bash
+git switch -c <new_branchname>
+# or old way
+git checkout -b iss53
+# shorthand for
+$ git branch <new_branchname>
+$ git switch <branchname>
+
+```
+## Merge Branch
+```
+# go to target branch (e.g. git switch dev)
+git merge <
+```
+
+## Push new branch to remote
+```bash
+git push -u origin <branch>
+```
+
+## Rename a branch
+This 
+```bash
+git branch -m <old_name> <new_name>
+```
+
+## Delete branch
+```bash
+git push -d <remote_name> <branchname>   # Delete remote - usually <remote_name> will be origin
+git branch -d <branchname>               # Delete local
+```
+
+# Tagging
+```bash
+# show all the tags
+git tag
+# show all the tag details
+git tag -l -n
+
+# adding an anootated Tag
+# -a is for annotate 
+git tag -a v0.9 -m "Initial release version"
+
+# pusing all tags to origin
+git push origin --tags
+# pushing a specific tag
+git push origin v0.9
+
+# create a branch and checkout
+git checkout -b tag/v0.9 v0.9
+```
+
+# Gneeral
+Git can reference a point in time via
+- SHA-1 hash (40 char) you can use a min of 4 or unambigous 8-10 - UI shows 7 for example
+- HEAD pointer reference
+- Branch reference
+- Tag reference
+- Ancestry
+
+## HEAD Pointer
+Points to the head of head `git show HEAD`. 
+- .git/HEAD is checked first
+
+
+# Starting from scratch
+## Git init
+```bash
+# create empty git 
+git init
+
+# there is no branch yet
+
+# but head points to a "main branch already"
+# .git/HEAD :  
+ref: refs/heads/main
+
+```
+
+## Create first readme file stage them and commit it
+```bash
+echo "# tinker_with_git" >> README.md
+git add README.md
+git commit -m "first commit"
+```
+
+## Create main branch 
+```bash
+git branch -M main
+```
+## Add remote and push main branch
+`.git/config` before:
+```
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+```
+
+
+
+```bash
+# add the remote origin
+git remote add origin https://github.com/tomafischer/tinker_with_git.git
+```
+`.git/config` after:
+```
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+[remote "origin"]
+        url = https://github.com/tomafischer/tinker_with_git.git
+        fetch = +refs/heads/*:refs/remotes/origin/*
+```
+
+### push main via -u
+`-u `: "Upstream" would refer to the main repo that other people will be pulling from, e.g. your GitHub repo. The `-u` option automatically sets that upstream for you, linking your repo to a central one. That way, in the future, Git "knows" where you want to push to and where you want to pull from, so you can use `git pull` or `git push` without arguments.
+```bash
+git push -u origin main
+```
+`.git/config` after:
+```
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+[remote "origin"]
+        url = https://github.com/tomafischer/tinker_with_git.git
+        fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "main"]
+        remote = origin
+        merge = refs/heads/main
+```
