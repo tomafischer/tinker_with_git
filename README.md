@@ -59,6 +59,7 @@ git add <filename>
 git commit -m 'message'
 # or in one step
 git commit -am 'message
+#more to come
 
 ```
 
