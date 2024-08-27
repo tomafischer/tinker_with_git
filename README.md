@@ -6,6 +6,7 @@
 
 ## info commands
 ```bash
+git help <command>
 # show all brancheds
 git branch -v
 # show a changeset
@@ -27,6 +28,29 @@ git show dev~2
 git ls-tree dev
 git ls-tree dev -r # recursive.. breaks the "tree" up into its fils
 ```
+## Log
+```bash
+# last n records, e.g. 3
+# use -p for patch to see details about each commit
+# --stat for statistics on commits
+# --format=oneline or --oneline
+git log -3 --oneline# last three entries
+git log --graph --all --oneline --decorate
+git log --stat
+
+git log --since=2024-08-26
+git log --until=2024-08-20
+
+git log --after=2.weeks --before=3.days
+git log --after=1.week
+git log --after=1.day
+git log --auther="tom"
+
+git log SHA..HEAD  #between two commits
+
+git log <filename> # shows me all the commits on that file
+```
+
 # Basics branching
 ## pull specific branch from remote
 ```bash
