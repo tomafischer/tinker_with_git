@@ -51,6 +51,18 @@ git log SHA..HEAD  #between two commits
 git log <filename> # shows me all the commits on that file
 ```
 
+# Commit
+##
+```bash
+git add <filename>
+# -m for message
+git commit -m 'message'
+# or in one step
+git commit -am 'message
+#more to come
+
+```
+
 # Basics branching
 ## pull specific branch from remote
 ```bash
