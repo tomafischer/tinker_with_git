@@ -1,6 +1,6 @@
 # GIT 
 
-### ChrisWuzHere
+
 # Info
 ## Links
 [slingaccademy](https://www.slingacademy.com/article/git-commands-comprehensive-cheat-sheet-examples/)
